@@ -1,6 +1,7 @@
 let input = document.querySelector(".input");
 let submit = document.querySelector(".add");
 let tasksDiv = document.querySelector(".tasks");
+let delAll = document.querySelector(".re");
 let arrayOfTasks = [];
 
 if (localStorage.getItem("tasks")) {
@@ -33,6 +34,12 @@ tasksDiv.addEventListener("click", (e) => {
     e.target.classList.toggle("done");
   }
 })
+
+delAll.onclick = function () {
+  arrayOfTasks = [];
+  localStorage.removeItem("tasks");
+  tasksDiv.innerHTML = "";
+}
 
 function addTaskToArray(taskText) {
   const task = {
